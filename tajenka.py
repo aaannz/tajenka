@@ -26,15 +26,16 @@ def generate_pdf(filename, title, crosswords, clues, show_solution):
   px = 34
   py = 34
   # height = space line + title + spaceline + crossword + spaceline + line
-  height = (crossh + 5) * py
+  height = (crossh + 4) * py
   # width = space collum + crossword + space collum + clues
   width = (2 + crossw + cluesw) * px
   
+  # A4 size in px - 1240 x 1754
   surface = cairo.PDFSurface(filename, 1240, 1754)
   ctx = cairo.Context(surface)
 
   y = 0
-  while y + height < 1854:
+  while y + height < 1754:
     ctx.set_source_rgb(0, 0, 0)
     ctx.select_font_face("FreeSerif", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
     ctx.set_font_size(font_size)
