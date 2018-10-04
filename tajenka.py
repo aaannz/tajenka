@@ -33,47 +33,51 @@ def generate_pdf(filename, title, crosswords, clues, show_solution):
   surface = cairo.PDFSurface(filename, 1240, 1754)
   ctx = cairo.Context(surface)
 
-  ctx.set_source_rgb(0, 0, 0)
-  ctx.select_font_face("FreeSerif", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
-  ctx.set_font_size(font_size)
-  ctx.move_to(font_size, font_size)
-  ctx.show_text(title)
-  ctx.move_to(font_size, 2 * font_size)
-  ctx.set_line_width(1)
-
-  y = 4 * font_size
-  for i, l in enumerate(crosswords):
-    x = px
-    for c in l:
-      x += px
-      if c == '':
-         ctx.move_to(x, y)
-      elif c.islower():
-         ctx.set_line_width(1)
-         ctx.rectangle(x, y, px , py )
-         ctx.stroke()
-         if show_solution:
-           ctx.move_to(x + 1, y + py - 2)
-           ctx.show_text(c)
-      elif c.isupper():
-         ctx.set_line_width(1)
-         ctx.rectangle(x, y, px, py)
-         ctx.set_source_rgb(1, 1, 0)
-         ctx.fill()
-         ctx.set_source_rgb(0, 0, 0)
-         ctx.rectangle(x, y, px, py)
-         ctx.stroke()
-         if show_solution:
-           ctx.move_to(x + 1, y + py - 2)
-           ctx.show_text(c)
-    # write clue
-    ctx.move_to((crossw + 4) * px, y + py -2)
-    ctx.show_text(clues[i])
-    y += py
-  ctx.move_to(0, y + 3 * py)
-  ctx.set_line_width(1)
-  ctx.line_to(1240, y + 3 * py)
-  ctx.stroke()
+  y = 0
+  while y + height < 1854:
+    ctx.set_source_rgb(0, 0, 0)
+    ctx.select_font_face("FreeSerif", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
+    ctx.set_font_size(font_size)
+    ctx.move_to(px, y + py)
+    ctx.show_text(title)
+    ctx.move_to(900, y + py)
+    ctx.show_text("Jméno:")
+    ctx.move_to(px, y + 2 * py)
+    ctx.set_line_width(1)
+    y += 2 * py
+    for i, l in enumerate(crosswords):
+      x = px
+      for c in l:
+        x += px
+        if c == '':
+           ctx.move_to(x, y)
+        elif c.islower():
+           ctx.set_line_width(1)
+           ctx.rectangle(x, y, px , py )
+           ctx.stroke()
+           if show_solution:
+             ctx.move_to(x + 1, y + py - 2)
+             ctx.show_text(c)
+        elif c.isupper():
+           ctx.set_line_width(1)
+           ctx.rectangle(x, y, px, py)
+           ctx.set_source_rgb(1, 1, 0)
+           ctx.fill()
+           ctx.set_source_rgb(0, 0, 0)
+           ctx.rectangle(x, y, px, py)
+           ctx.stroke()
+           if show_solution:
+             ctx.move_to(x + 1, y + py - 2)
+             ctx.show_text(c)
+      # write clue
+      ctx.move_to((crossw + 4) * px, y + py - 10)
+      ctx.show_text(clues[i])
+      y += py
+    y += 2 * py
+    ctx.move_to(0, y)
+    ctx.set_line_width(1)
+    ctx.line_to(1240, y)
+    ctx.stroke()
   ctx.show_page()
 
 title = None
