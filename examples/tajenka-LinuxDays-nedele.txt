@@ -1,0 +1,34 @@
+title:
+LinuxDays 2018 openSUSE - neděle
+
+# Tajenka - openSUSE Linux
+
+tajenka:
+     kOntejnery
+   zypPer
+  gnomE
+   opeNalt
+    syStemd
+     sUdo
+    obS
+  dockEr
+ iptabLes
+     gIt
+ vulkaN
+pulseaUdio
+  linuX
+
+napovedy:
+Lehká virtualizace
+Command line správce balíčků v openSUSE
+Grafické prostředí
+Brněnská varianta LinuxDays
+Linuxový init systém
+Příkaz k vykonání operace s oprávněními jiného uživatele
+Zkratka build systému openSUSE
+Kontejnerová technologie
+Příkaz pro nastavování pravidel firewallu
+Populární verzovací systém vytvořený pro vývoj kernelu
+Nástupce openGL, grafická knihovna
+Zvukový server
+Oblíbený operační systém

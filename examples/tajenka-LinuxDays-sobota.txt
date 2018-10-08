@@ -1,0 +1,34 @@
+title:
+LinuxDays 2018 openSUSE - sobota
+
+# Tajenka - HAVE A LOT OF FUN
+
+tajenka:
+  pytHon
+     Apache
+  torValds
+tumblEweed
+    bAsh
+    sLes
+    nOrimberk
+  yasT
+     Openqa
+  btrFs
+ fireFox
+     Uefi
+  kerNel
+
+napovedy:
+Hadovitý programovací jazyk
+Populární webový server
+Příjmení zakladatele Linuxu
+Název rolling release distribuce openSUSE
+Výchozí shell openSUSE
+Zkratka enterprise distribuce SUSE
+Město, kde sídlí centrála SUSE
+Instalační a konfigurační nástroj openSUSE
+Systém pro automatické testování operačních systémů
+Souborový systém podporující snapshoty
+Internetový prohlížeč
+Nástupce BIOS
+Jádro operačního systému
