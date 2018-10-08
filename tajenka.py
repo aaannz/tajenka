@@ -1,4 +1,5 @@
 #!/bin/python3
+# -*- coding: utf-8 -*-
 
 import os
 from sys import argv
@@ -47,7 +48,7 @@ def generate_pdf(filename, title, crosswords, clues, show_solution):
     ctx.set_line_width(1)
     y += 2 * py
     for i, l in enumerate(crosswords):
-      x = px
+      x = 0
       for c in l:
         x += px
         if c == '':
@@ -57,21 +58,23 @@ def generate_pdf(filename, title, crosswords, clues, show_solution):
            ctx.rectangle(x, y, px , py )
            ctx.stroke()
            if show_solution:
-             ctx.move_to(x + 1, y + py - 2)
+             ctx.move_to(x + 6, y + py - 6)
              ctx.show_text(c)
         elif c.isupper():
-           ctx.set_line_width(1)
+           ctx.set_line_width(5)
            ctx.rectangle(x, y, px, py)
-           ctx.set_source_rgb(1, 1, 0)
-           ctx.fill()
+           ctx.set_source_rgb(0.45, 0.73, 0.16)
+           ctx.stroke()
+#           ctx.fill()
+           ctx.set_line_width(1)
            ctx.set_source_rgb(0, 0, 0)
            ctx.rectangle(x, y, px, py)
            ctx.stroke()
            if show_solution:
-             ctx.move_to(x + 1, y + py - 2)
+             ctx.move_to(x + 6, y + py - 6)
              ctx.show_text(c)
       # write clue
-      ctx.move_to((crossw + 4) * px, y + py - 10)
+      ctx.move_to((crossw + 3) * px, y + py - 10)
       ctx.show_text(clues[i])
       y += py
     y += 2 * py
